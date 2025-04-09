@@ -1,0 +1,49 @@
+// Deklaracje zmiennych
+var graph_attrs = [bgcolor="lightgray", fontsize=12];
+var node_attrs = [shape="circle", color="blue"];
+var edge_attrs = [color="black", penwidth=1];
+
+var my_nodes = nodes(
+  A [label="Start", color="red"],
+  B [label="Process"],
+  (C, D, E) [shape="box"]
+);
+
+var important_edges = edges(
+  A -> B [color="green", penwidth=2],
+  B -> C,
+  C -- D [style="dashed"]
+);
+
+// Deklaracja grafu
+graph MyGraph {
+  graph $graph_attrs;
+  node $node_attrs;
+  edge $edge_attrs;
+  
+  // Lokalne deklaracje
+  F [shape="diamond"];
+  G [label="End", color="darkred"];
+  
+  $my_nodes;
+  $important_edges;
+  
+  D -> E;
+  E -> F [arrowhead="vee"];
+  F -- G;
+}
+
+// Inny graf z krótszą składnią
+Network {
+  node [shape="box"];
+  
+  (Server1, Server2, Client1, Client2);
+  Server1 -- Server2 [weight=5];
+  Client1 -> Server1;
+  Client2 -> Server1;
+}
+
+// Wywołania komend
+export(MyGraph, format="png", filename="my_graph");
+analyze(Network.traffic);
+BFS(MyGraph, start_node: A);
