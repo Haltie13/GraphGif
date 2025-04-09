@@ -1,2 +1,2 @@
 # GraphGif
-Translator of a custrom graph describing language into graphviz animation.
+Translator of a custom graph describing language into graphviz animation.
