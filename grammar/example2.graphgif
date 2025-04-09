@@ -1,0 +1,10 @@
+var node_attrs= [shape="circle", color="red"]
+
+graph ExampleGraph{
+  node $node_attrs;
+  nodes(A [label="Start"], B[label="Task"], C[label="End"]);
+  A->B;
+  B--C;
+  C->A;
+}
+BFS(ExampleGraph, start_node: A);
