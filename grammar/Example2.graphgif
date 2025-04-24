@@ -9,3 +9,8 @@ graph ExampleGraph{
   C->A;
 }
 BFS(ExampleGraph, start_node:A);
+
+var_ref       ::= "$" identifier
+var node_style = [shape="circle", color="blue"];
+A $node_style;
+B $node_style;
