@@ -43,7 +43,7 @@ attrVarRef: '$' ID;
 // Commands
 command: 'run' ID 'with' '(' argList? ')';
 argList: argument (',' argument)*;
-argument: ID ('=' | ':') path;
+argument: ID ('=' | ':') (path | value);
 path: ID ('.' ID)*;
 
 // Lexical rules
@@ -52,3 +52,4 @@ NUMBER: [0-9]+;
 STRING: '\'' (~[\r\n'\\] | '\\' .)* '\'';
 WS: [ \t\r\n]+ -> skip;
 COMMENT: '/*' .*? '*/' -> skip;
+COMMENT_LINE: '//' ~[\r\n]* -> skip;
