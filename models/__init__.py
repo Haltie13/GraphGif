@@ -1,8 +1,3 @@
-"""
-GraphGif AST model package.
-This package contains all the AST node types, factory methods, and utilities
-for working with GraphGif language syntax trees.
-"""
 
 # Import all classes from submodules
 from .values import (
