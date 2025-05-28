@@ -107,7 +107,7 @@ graph MyGraph {
   F -- G;  
 }
   
-//  Inny graf z krótszą składnią  
+// Inny graf z krótszą składnią  
 Network {  
   node [shape="box"];
     
