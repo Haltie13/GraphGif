@@ -1,5 +1,5 @@
-from ast_builder import *
-from example_usage import GraphgifPrettyPrinter, GraphStatisticsVisitor
+from parsing import parse_graphgif_file
+from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
 
 
 ast = parse_graphgif_file('./examples/example1.gg')
