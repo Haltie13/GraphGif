@@ -1,4 +1,3 @@
-import os
 from parsing import parse_graphgif_file
 from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
 
