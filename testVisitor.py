@@ -1,7 +1,7 @@
 from antlr4 import FileStream, CommonTokenStream
 from grammar.GraphgifLexer import GraphgifLexer
 from grammar.GraphgifParser import GraphgifParser
-from grammar.GraphgifVisitorImpl import GraphgifVisitorImpl
+from parsing.grammar.GraphgifVisitorImpl import GraphgifVisitorImpl
 
 # Wczytaj plik jako strumień
 input_stream = FileStream('./examples/example1.gg')
