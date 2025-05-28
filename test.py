@@ -1,18 +1,28 @@
+import os
 from parsing import parse_graphgif_file
 from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
 
+example_dir = './examples'
 
-ast = parse_graphgif_file('./examples/example1.gg')
-print(type(ast))
-printer = GraphgifPrettyPrinter()
-printer.visit_program(ast)
-print(printer.get_output())
+for i, example_file in enumerate(os.listdir(example_dir)):
+    example_path = os.path.join(example_dir, example_file)
+    print('\n' + '-'* 10 + f' EXAMPLE: {example_file} ' + '-'* 10)
+    ast, graph_model = parse_graphgif_file(example_path)
+    print(f"AST type: {type(ast)}")
+    print(f"Graph model type: {type(graph_model)}")
 
-stats_visitor = GraphStatisticsVisitor()
-stats_visitor.visit_program(ast)
-stats = stats_visitor.get_statistics()
-        
-print("\nStatistics:")
-print("=" * 50)
-for key, value in stats.items():
-    print(f"{key}: {value}")
+    printer = GraphgifPrettyPrinter()
+    printer.visit_program(ast)
+    print("\nAST Representation:")
+    print(printer.get_output())
+
+    print("\nConcrete Graph Model:")
+    print(graph_model)
+
+    stats_visitor = GraphStatisticsVisitor()
+    stats_visitor.visit_program(ast)
+    stats = stats_visitor.get_statistics()
+            
+    print("\nStatistics:")
+    for key, value in stats.items():
+        print(f"{key}: {value}")
