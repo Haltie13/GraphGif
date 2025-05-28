@@ -6,7 +6,7 @@ This module provides a visitor that converts AST back to readable GraphGif code.
 from .base_visitor import BaseASTVisitor
 from models import (
     Program, VarDecl, GraphDecl, NodeDecl, EdgeDecl, Command,
-    AttrList, NodeList, EdgeList
+    AttrList, NodeList, EdgeList, Path, Value
 )
 
 
@@ -110,7 +110,19 @@ class GraphgifPrettyPrinter(BaseASTVisitor):
         for i, arg in enumerate(node.arguments):
             if i > 0:
                 self.output.append(", ")
-            self.output.append(f"{arg.name}{arg.operator.value}{'.'.join(arg.path.components)}")
+            
+            # Handle both path and value arguments
+            if isinstance(arg.argument_value, Path):
+                value_str = '.'.join(arg.argument_value.components)
+            elif isinstance(arg.argument_value, Value):
+                if arg.argument_value.value_type == "STRING":
+                    value_str = f'"{arg.argument_value.value}"'
+                else:
+                    value_str = str(arg.argument_value.value)
+            else:
+                value_str = str(arg.argument_value)
+            
+            self.output.append(f"{arg.name}{arg.operator.value}{value_str}")
         self.output.append(")\n")
     
     def visit_attr_list(self, node: AttrList) -> None:

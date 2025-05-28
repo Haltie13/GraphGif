@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,29,211,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,30,213,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,2,21,7,21,1,0,1,0,1,0,5,0,48,8,0,10,0,12,0,51,9,0,1,0,1,0,1,
@@ -25,50 +25,50 @@ def serializedATN():
         12,12,158,9,12,1,12,3,12,161,8,12,3,12,163,8,12,1,12,1,12,1,13,1,
         13,1,13,1,13,1,14,1,14,1,15,1,15,1,15,1,16,1,16,1,16,1,17,1,17,1,
         17,1,18,1,18,1,18,1,18,1,18,3,18,187,8,18,1,18,1,18,1,19,1,19,1,
-        19,5,19,194,8,19,10,19,12,19,197,9,19,1,20,1,20,1,20,1,20,1,21,1,
-        21,1,21,5,21,206,8,21,10,21,12,21,209,9,21,1,21,0,0,22,0,2,4,6,8,
-        10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,0,6,1,0,4,6,1,
-        0,7,8,2,0,4,5,9,9,1,0,12,14,2,0,3,3,18,18,1,0,25,27,213,0,49,1,0,
-        0,0,2,70,1,0,0,0,4,76,1,0,0,0,6,84,1,0,0,0,8,86,1,0,0,0,10,108,1,
-        0,0,0,12,115,1,0,0,0,14,119,1,0,0,0,16,125,1,0,0,0,18,132,1,0,0,
-        0,20,134,1,0,0,0,22,142,1,0,0,0,24,150,1,0,0,0,26,166,1,0,0,0,28,
-        170,1,0,0,0,30,172,1,0,0,0,32,175,1,0,0,0,34,178,1,0,0,0,36,181,
-        1,0,0,0,38,190,1,0,0,0,40,198,1,0,0,0,42,202,1,0,0,0,44,45,3,2,1,
-        0,45,46,5,1,0,0,46,48,1,0,0,0,47,44,1,0,0,0,48,51,1,0,0,0,49,47,
-        1,0,0,0,49,50,1,0,0,0,50,57,1,0,0,0,51,49,1,0,0,0,52,53,3,8,4,0,
-        53,54,5,1,0,0,54,56,1,0,0,0,55,52,1,0,0,0,56,59,1,0,0,0,57,55,1,
-        0,0,0,57,58,1,0,0,0,58,65,1,0,0,0,59,57,1,0,0,0,60,61,3,36,18,0,
-        61,62,5,1,0,0,62,64,1,0,0,0,63,60,1,0,0,0,64,67,1,0,0,0,65,63,1,
-        0,0,0,65,66,1,0,0,0,66,68,1,0,0,0,67,65,1,0,0,0,68,69,5,0,0,1,69,
-        1,1,0,0,0,70,71,5,2,0,0,71,72,3,4,2,0,72,73,5,25,0,0,73,74,5,3,0,
-        0,74,75,3,6,3,0,75,3,1,0,0,0,76,77,7,0,0,0,77,5,1,0,0,0,78,85,3,
-        30,15,0,79,85,3,32,16,0,80,85,3,34,17,0,81,85,3,20,10,0,82,85,3,
-        22,11,0,83,85,3,24,12,0,84,78,1,0,0,0,84,79,1,0,0,0,84,80,1,0,0,
-        0,84,81,1,0,0,0,84,82,1,0,0,0,84,83,1,0,0,0,85,7,1,0,0,0,86,87,7,
-        1,0,0,87,88,5,9,0,0,88,89,5,25,0,0,89,95,5,10,0,0,90,91,3,10,5,0,
-        91,92,5,1,0,0,92,94,1,0,0,0,93,90,1,0,0,0,94,97,1,0,0,0,95,93,1,
-        0,0,0,95,96,1,0,0,0,96,103,1,0,0,0,97,95,1,0,0,0,98,99,3,12,6,0,
-        99,100,5,1,0,0,100,102,1,0,0,0,101,98,1,0,0,0,102,105,1,0,0,0,103,
-        101,1,0,0,0,103,104,1,0,0,0,104,106,1,0,0,0,105,103,1,0,0,0,106,
-        107,5,11,0,0,107,9,1,0,0,0,108,111,7,2,0,0,109,112,3,24,12,0,110,
-        112,3,34,17,0,111,109,1,0,0,0,111,110,1,0,0,0,112,11,1,0,0,0,113,
-        116,3,14,7,0,114,116,3,16,8,0,115,113,1,0,0,0,115,114,1,0,0,0,116,
-        13,1,0,0,0,117,120,3,20,10,0,118,120,3,30,15,0,119,117,1,0,0,0,119,
-        118,1,0,0,0,120,123,1,0,0,0,121,124,3,24,12,0,122,124,3,34,17,0,
-        123,121,1,0,0,0,123,122,1,0,0,0,123,124,1,0,0,0,124,15,1,0,0,0,125,
-        126,5,25,0,0,126,127,3,18,9,0,127,130,5,25,0,0,128,131,3,24,12,0,
-        129,131,3,34,17,0,130,128,1,0,0,0,130,129,1,0,0,0,130,131,1,0,0,
-        0,131,17,1,0,0,0,132,133,7,3,0,0,133,19,1,0,0,0,134,139,5,25,0,0,
-        135,136,5,15,0,0,136,138,5,25,0,0,137,135,1,0,0,0,138,141,1,0,0,
-        0,139,137,1,0,0,0,139,140,1,0,0,0,140,21,1,0,0,0,141,139,1,0,0,0,
-        142,147,3,16,8,0,143,144,5,15,0,0,144,146,3,16,8,0,145,143,1,0,0,
-        0,146,149,1,0,0,0,147,145,1,0,0,0,147,148,1,0,0,0,148,23,1,0,0,0,
-        149,147,1,0,0,0,150,162,5,16,0,0,151,156,3,26,13,0,152,153,5,15,
-        0,0,153,155,3,26,13,0,154,152,1,0,0,0,155,158,1,0,0,0,156,154,1,
-        0,0,0,156,157,1,0,0,0,157,160,1,0,0,0,158,156,1,0,0,0,159,161,5,
-        15,0,0,160,159,1,0,0,0,160,161,1,0,0,0,161,163,1,0,0,0,162,151,1,
-        0,0,0,162,163,1,0,0,0,163,164,1,0,0,0,164,165,5,17,0,0,165,25,1,
-        0,0,0,166,167,5,25,0,0,167,168,7,4,0,0,168,169,3,28,14,0,169,27,
+        19,5,19,194,8,19,10,19,12,19,197,9,19,1,20,1,20,1,20,1,20,3,20,203,
+        8,20,1,21,1,21,1,21,5,21,208,8,21,10,21,12,21,211,9,21,1,21,0,0,
+        22,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,
+        0,6,1,0,4,6,1,0,7,8,2,0,4,5,9,9,1,0,12,14,2,0,3,3,18,18,1,0,25,27,
+        216,0,49,1,0,0,0,2,70,1,0,0,0,4,76,1,0,0,0,6,84,1,0,0,0,8,86,1,0,
+        0,0,10,108,1,0,0,0,12,115,1,0,0,0,14,119,1,0,0,0,16,125,1,0,0,0,
+        18,132,1,0,0,0,20,134,1,0,0,0,22,142,1,0,0,0,24,150,1,0,0,0,26,166,
+        1,0,0,0,28,170,1,0,0,0,30,172,1,0,0,0,32,175,1,0,0,0,34,178,1,0,
+        0,0,36,181,1,0,0,0,38,190,1,0,0,0,40,198,1,0,0,0,42,204,1,0,0,0,
+        44,45,3,2,1,0,45,46,5,1,0,0,46,48,1,0,0,0,47,44,1,0,0,0,48,51,1,
+        0,0,0,49,47,1,0,0,0,49,50,1,0,0,0,50,57,1,0,0,0,51,49,1,0,0,0,52,
+        53,3,8,4,0,53,54,5,1,0,0,54,56,1,0,0,0,55,52,1,0,0,0,56,59,1,0,0,
+        0,57,55,1,0,0,0,57,58,1,0,0,0,58,65,1,0,0,0,59,57,1,0,0,0,60,61,
+        3,36,18,0,61,62,5,1,0,0,62,64,1,0,0,0,63,60,1,0,0,0,64,67,1,0,0,
+        0,65,63,1,0,0,0,65,66,1,0,0,0,66,68,1,0,0,0,67,65,1,0,0,0,68,69,
+        5,0,0,1,69,1,1,0,0,0,70,71,5,2,0,0,71,72,3,4,2,0,72,73,5,25,0,0,
+        73,74,5,3,0,0,74,75,3,6,3,0,75,3,1,0,0,0,76,77,7,0,0,0,77,5,1,0,
+        0,0,78,85,3,30,15,0,79,85,3,32,16,0,80,85,3,34,17,0,81,85,3,20,10,
+        0,82,85,3,22,11,0,83,85,3,24,12,0,84,78,1,0,0,0,84,79,1,0,0,0,84,
+        80,1,0,0,0,84,81,1,0,0,0,84,82,1,0,0,0,84,83,1,0,0,0,85,7,1,0,0,
+        0,86,87,7,1,0,0,87,88,5,9,0,0,88,89,5,25,0,0,89,95,5,10,0,0,90,91,
+        3,10,5,0,91,92,5,1,0,0,92,94,1,0,0,0,93,90,1,0,0,0,94,97,1,0,0,0,
+        95,93,1,0,0,0,95,96,1,0,0,0,96,103,1,0,0,0,97,95,1,0,0,0,98,99,3,
+        12,6,0,99,100,5,1,0,0,100,102,1,0,0,0,101,98,1,0,0,0,102,105,1,0,
+        0,0,103,101,1,0,0,0,103,104,1,0,0,0,104,106,1,0,0,0,105,103,1,0,
+        0,0,106,107,5,11,0,0,107,9,1,0,0,0,108,111,7,2,0,0,109,112,3,24,
+        12,0,110,112,3,34,17,0,111,109,1,0,0,0,111,110,1,0,0,0,112,11,1,
+        0,0,0,113,116,3,14,7,0,114,116,3,16,8,0,115,113,1,0,0,0,115,114,
+        1,0,0,0,116,13,1,0,0,0,117,120,3,20,10,0,118,120,3,30,15,0,119,117,
+        1,0,0,0,119,118,1,0,0,0,120,123,1,0,0,0,121,124,3,24,12,0,122,124,
+        3,34,17,0,123,121,1,0,0,0,123,122,1,0,0,0,123,124,1,0,0,0,124,15,
+        1,0,0,0,125,126,5,25,0,0,126,127,3,18,9,0,127,130,5,25,0,0,128,131,
+        3,24,12,0,129,131,3,34,17,0,130,128,1,0,0,0,130,129,1,0,0,0,130,
+        131,1,0,0,0,131,17,1,0,0,0,132,133,7,3,0,0,133,19,1,0,0,0,134,139,
+        5,25,0,0,135,136,5,15,0,0,136,138,5,25,0,0,137,135,1,0,0,0,138,141,
+        1,0,0,0,139,137,1,0,0,0,139,140,1,0,0,0,140,21,1,0,0,0,141,139,1,
+        0,0,0,142,147,3,16,8,0,143,144,5,15,0,0,144,146,3,16,8,0,145,143,
+        1,0,0,0,146,149,1,0,0,0,147,145,1,0,0,0,147,148,1,0,0,0,148,23,1,
+        0,0,0,149,147,1,0,0,0,150,162,5,16,0,0,151,156,3,26,13,0,152,153,
+        5,15,0,0,153,155,3,26,13,0,154,152,1,0,0,0,155,158,1,0,0,0,156,154,
+        1,0,0,0,156,157,1,0,0,0,157,160,1,0,0,0,158,156,1,0,0,0,159,161,
+        5,15,0,0,160,159,1,0,0,0,160,161,1,0,0,0,161,163,1,0,0,0,162,151,
+        1,0,0,0,162,163,1,0,0,0,163,164,1,0,0,0,164,165,5,17,0,0,165,25,
+        1,0,0,0,166,167,5,25,0,0,167,168,7,4,0,0,168,169,3,28,14,0,169,27,
         1,0,0,0,170,171,7,5,0,0,171,29,1,0,0,0,172,173,5,19,0,0,173,174,
         5,25,0,0,174,31,1,0,0,0,175,176,5,19,0,0,176,177,5,25,0,0,177,33,
         1,0,0,0,178,179,5,19,0,0,179,180,5,25,0,0,180,35,1,0,0,0,181,182,
@@ -77,11 +77,11 @@ def serializedATN():
         189,5,23,0,0,189,37,1,0,0,0,190,195,3,40,20,0,191,192,5,15,0,0,192,
         194,3,40,20,0,193,191,1,0,0,0,194,197,1,0,0,0,195,193,1,0,0,0,195,
         196,1,0,0,0,196,39,1,0,0,0,197,195,1,0,0,0,198,199,5,25,0,0,199,
-        200,7,4,0,0,200,201,3,42,21,0,201,41,1,0,0,0,202,207,5,25,0,0,203,
-        204,5,24,0,0,204,206,5,25,0,0,205,203,1,0,0,0,206,209,1,0,0,0,207,
-        205,1,0,0,0,207,208,1,0,0,0,208,43,1,0,0,0,209,207,1,0,0,0,19,49,
-        57,65,84,95,103,111,115,119,123,130,139,147,156,160,162,186,195,
-        207
+        202,7,4,0,0,200,203,3,42,21,0,201,203,3,28,14,0,202,200,1,0,0,0,
+        202,201,1,0,0,0,203,41,1,0,0,0,204,209,5,25,0,0,205,206,5,24,0,0,
+        206,208,5,25,0,0,207,205,1,0,0,0,208,211,1,0,0,0,209,207,1,0,0,0,
+        209,210,1,0,0,0,210,43,1,0,0,0,211,209,1,0,0,0,20,49,57,65,84,95,
+        103,111,115,119,123,130,139,147,156,160,162,186,195,202,209
     ]
 
 class GraphgifParser ( Parser ):
@@ -106,7 +106,8 @@ class GraphgifParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "ID", "NUMBER", "STRING", "WS", "COMMENT" ]
+                      "<INVALID>", "ID", "NUMBER", "STRING", "WS", "COMMENT", 
+                      "COMMENT_LINE" ]
 
     RULE_program = 0
     RULE_varDecl = 1
@@ -167,6 +168,7 @@ class GraphgifParser ( Parser ):
     STRING=27
     WS=28
     COMMENT=29
+    COMMENT_LINE=30
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -218,12 +220,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitProgram" ):
                 listener.exitProgram(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitProgram" ):
-                return visitor.visitProgram(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -311,12 +307,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitVarDecl" ):
                 listener.exitVarDecl(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVarDecl" ):
-                return visitor.visitVarDecl(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -363,12 +353,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitVarType" ):
                 listener.exitVarType(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVarType" ):
-                return visitor.visitVarType(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -437,12 +421,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitVarValue" ):
                 listener.exitVarValue(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVarValue" ):
-                return visitor.visitVarValue(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -536,12 +514,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitGraphDecl" ):
                 listener.exitGraphDecl(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitGraphDecl" ):
-                return visitor.visitGraphDecl(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -627,12 +599,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitGlobalAttrDecl" ):
                 listener.exitGlobalAttrDecl(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitGlobalAttrDecl" ):
-                return visitor.visitGlobalAttrDecl(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -698,12 +664,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStatement" ):
                 listener.exitStatement(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitStatement" ):
-                return visitor.visitStatement(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -771,12 +731,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitNodeDecl" ):
                 listener.exitNodeDecl(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitNodeDecl" ):
-                return visitor.visitNodeDecl(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -861,12 +815,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitEdgeDecl" ):
                 listener.exitEdgeDecl(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEdgeDecl" ):
-                return visitor.visitEdgeDecl(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -925,12 +873,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitEdgeOp" ):
                 listener.exitEdgeOp(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEdgeOp" ):
-                return visitor.visitEdgeOp(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -980,12 +922,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitNodeList" ):
                 listener.exitNodeList(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitNodeList" ):
-                return visitor.visitNodeList(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1045,12 +981,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitEdgeList" ):
                 listener.exitEdgeList(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEdgeList" ):
-                return visitor.visitEdgeList(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1108,12 +1038,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitAttrList" ):
                 listener.exitAttrList(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitAttrList" ):
-                return visitor.visitAttrList(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1192,12 +1116,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitAttribute" ):
                 listener.exitAttribute(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitAttribute" ):
-                return visitor.visitAttribute(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1255,12 +1173,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitValue" ):
                 listener.exitValue(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitValue" ):
-                return visitor.visitValue(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1308,12 +1220,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitNodeVarRef" ):
                 listener.exitNodeVarRef(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitNodeVarRef" ):
-                return visitor.visitNodeVarRef(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1357,12 +1263,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitEdgeVarRef" ):
                 listener.exitEdgeVarRef(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEdgeVarRef" ):
-                return visitor.visitEdgeVarRef(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1405,12 +1305,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitAttrVarRef" ):
                 listener.exitAttrVarRef(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitAttrVarRef" ):
-                return visitor.visitAttrVarRef(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1458,12 +1352,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCommand" ):
                 listener.exitCommand(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCommand" ):
-                return visitor.visitCommand(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1527,12 +1415,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitArgList" ):
                 listener.exitArgList(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitArgList" ):
-                return visitor.visitArgList(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1580,6 +1462,10 @@ class GraphgifParser ( Parser ):
             return self.getTypedRuleContext(GraphgifParser.PathContext,0)
 
 
+        def value(self):
+            return self.getTypedRuleContext(GraphgifParser.ValueContext,0)
+
+
         def getRuleIndex(self):
             return GraphgifParser.RULE_argument
 
@@ -1590,12 +1476,6 @@ class GraphgifParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitArgument" ):
                 listener.exitArgument(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitArgument" ):
-                return visitor.visitArgument(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1616,8 +1496,20 @@ class GraphgifParser ( Parser ):
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 200
-            self.path()
+            self.state = 202
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,18,self._ctx)
+            if la_ == 1:
+                self.state = 200
+                self.path()
+                pass
+
+            elif la_ == 2:
+                self.state = 201
+                self.value()
+                pass
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1651,12 +1543,6 @@ class GraphgifParser ( Parser ):
             if hasattr( listener, "exitPath" ):
                 listener.exitPath(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitPath" ):
-                return visitor.visitPath(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1667,17 +1553,17 @@ class GraphgifParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 202
+            self.state = 204
             self.match(GraphgifParser.ID)
-            self.state = 207
+            self.state = 209
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==24:
-                self.state = 203
+                self.state = 205
                 self.match(GraphgifParser.T__23)
-                self.state = 204
+                self.state = 206
                 self.match(GraphgifParser.ID)
-                self.state = 209
+                self.state = 211
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 

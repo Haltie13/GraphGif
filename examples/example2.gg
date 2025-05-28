@@ -1,0 +1,12 @@
+var node triangle_nodes = A, B, C;
+var attributes node_style = [shape='circle', color='blue'];
+
+undirected graph SimpleTriangle {
+    node [fillcolor='lightgray'];
+    $triangle_nodes $node_style;
+    A -- B;
+    B -- C;
+    C -- A;
+}
+
+run SimpleTriangle with (output='triangle.png');

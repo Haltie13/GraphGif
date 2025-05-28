@@ -5,7 +5,7 @@ This module contains commands, arguments, paths and other statement types.
 
 from dataclasses import dataclass
 from typing import List, Optional, Union
-from .values import ASTNode, AttributeOperator
+from .values import ASTNode, AttributeOperator, Value
 from .expressions import NodeExpression, AttributeExpression
 
 
@@ -24,10 +24,10 @@ class Path(ASTNode):
 
 @dataclass
 class Argument(ASTNode):
-    """Command argument: name = path."""
+    """Command argument: name = path or name = value."""
     name: str
     operator: AttributeOperator
-    path: Path
+    argument_value: Union[Path, Value]  # Can be either a path or a value
 
 
 @dataclass
