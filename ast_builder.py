@@ -41,7 +41,6 @@ class ASTBuilder(GraphgifListener):
         var_type = ctx.varType().getText()
         name = ctx.ID().getText()
         
-        # Get the variable value from the stack
         var_value = self.ast_stack.pop()
         
         var_decl = ASTFactory.create_var_decl(var_type, name, var_value)
