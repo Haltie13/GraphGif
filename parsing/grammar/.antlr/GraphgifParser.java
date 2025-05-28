@@ -1,4 +1,4 @@
-// Generated from /Users/jakubmikolajczyk/Studia/tkik/GG/grammar/Graphgif.g4 by ANTLR 4.13.1
+// Generated from /Users/jakubmikolajczyk/Studia/tkik/GraphGif/parsing/grammar/Graphgif.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -128,6 +128,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitProgram(this);
+		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -213,6 +221,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_varDecl; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterVarDecl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitVarDecl(this);
+		}
 	}
 
 	public final VarDeclContext varDecl() throws RecognitionException {
@@ -250,6 +266,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_varType; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterVarType(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitVarType(this);
+		}
 	}
 
 	public final VarTypeContext varType() throws RecognitionException {
@@ -306,6 +330,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_varValue; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterVarValue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitVarValue(this);
+		}
 	}
 
 	public final VarValueContext varValue() throws RecognitionException {
@@ -389,6 +421,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_graphDecl; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterGraphDecl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitGraphDecl(this);
+		}
 	}
 
 	public final GraphDeclContext graphDecl() throws RecognitionException {
@@ -475,6 +515,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_globalAttrDecl; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterGlobalAttrDecl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitGlobalAttrDecl(this);
+		}
 	}
 
 	public final GlobalAttrDeclContext globalAttrDecl() throws RecognitionException {
@@ -537,6 +585,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitStatement(this);
+		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -591,6 +647,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_nodeDecl; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterNodeDecl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitNodeDecl(this);
+		}
 	}
 
 	public final NodeDeclContext nodeDecl() throws RecognitionException {
@@ -669,6 +733,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_edgeDecl; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterEdgeDecl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitEdgeDecl(this);
+		}
 	}
 
 	public final EdgeDeclContext edgeDecl() throws RecognitionException {
@@ -723,6 +795,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_edgeOp; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterEdgeOp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitEdgeOp(this);
+		}
 	}
 
 	public final EdgeOpContext edgeOp() throws RecognitionException {
@@ -765,6 +845,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_nodeList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterNodeList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitNodeList(this);
+		}
 	}
 
 	public final NodeListContext nodeList() throws RecognitionException {
@@ -817,6 +905,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_edgeList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterEdgeList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitEdgeList(this);
+		}
 	}
 
 	public final EdgeListContext edgeList() throws RecognitionException {
@@ -869,6 +965,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_attrList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterAttrList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitAttrList(this);
+		}
 	}
 
 	public final AttrListContext attrList() throws RecognitionException {
@@ -944,6 +1048,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_attribute; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterAttribute(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitAttribute(this);
+		}
 	}
 
 	public final AttributeContext attribute() throws RecognitionException {
@@ -989,6 +1101,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_value; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterValue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitValue(this);
+		}
 	}
 
 	public final ValueContext value() throws RecognitionException {
@@ -1028,6 +1148,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_nodeVarRef; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterNodeVarRef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitNodeVarRef(this);
+		}
 	}
 
 	public final NodeVarRefContext nodeVarRef() throws RecognitionException {
@@ -1060,6 +1188,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_edgeVarRef; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterEdgeVarRef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitEdgeVarRef(this);
+		}
 	}
 
 	public final EdgeVarRefContext edgeVarRef() throws RecognitionException {
@@ -1092,6 +1228,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_attrVarRef; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterAttrVarRef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitAttrVarRef(this);
+		}
 	}
 
 	public final AttrVarRefContext attrVarRef() throws RecognitionException {
@@ -1127,6 +1271,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_command; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterCommand(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitCommand(this);
+		}
 	}
 
 	public final CommandContext command() throws RecognitionException {
@@ -1181,6 +1333,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_argList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterArgList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitArgList(this);
+		}
 	}
 
 	public final ArgListContext argList() throws RecognitionException {
@@ -1231,6 +1391,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_argument; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterArgument(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitArgument(this);
+		}
 	}
 
 	public final ArgumentContext argument() throws RecognitionException {
@@ -1277,6 +1445,14 @@ public class GraphgifParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_path; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).enterPath(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GraphgifListener ) ((GraphgifListener)listener).exitPath(this);
+		}
 	}
 
 	public final PathContext path() throws RecognitionException {

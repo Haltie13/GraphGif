@@ -5,14 +5,19 @@ This module provides utilities to convert ANTLR parse trees to our structured AS
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'grammar'))
+
+# Add current directory and parent directory to path
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+sys.path.insert(0, current_dir)
 
 from antlr4 import *
-from grammar.GraphgifLexer import GraphgifLexer
-from grammar.GraphgifParser import GraphgifParser
-from grammar.GraphgifListener import GraphgifListener
+from .grammar.GraphgifLexer import GraphgifLexer
+from .grammar.GraphgifParser import GraphgifParser
+from .grammar.GraphgifListener import GraphgifListener
 
-from graphgif_model import *
+from models import *
 
 
 class ASTBuilder(GraphgifListener):
@@ -264,6 +269,8 @@ def test_parser():
         ast = parse_graphgif(test_code)
         
         # Pretty print the result
+        from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
+        
         printer = GraphgifPrettyPrinter()
         printer.visit_program(ast)
         print("Parsed AST:")
@@ -288,6 +295,4 @@ def test_parser():
 
 
 if __name__ == "__main__":
-    # Import the example usage module to get the printer
-    from example_usage import GraphgifPrettyPrinter, GraphStatisticsVisitor
     test_parser()
