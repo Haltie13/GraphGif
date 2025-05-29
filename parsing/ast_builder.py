@@ -6,7 +6,6 @@ This module provides utilities to convert ANTLR parse trees to our structured AS
 import sys
 import os
 
-# Add current directory and parent directory to path
 current_dir = os.path.dirname(__file__)
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
