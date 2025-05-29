@@ -21,9 +21,41 @@ The goal of this project is to:
 - #### Planned implementation language:
   Python
 - #### Scanner/ Parser implementation:
-  [to be completed]
+  The **GraphGif** project was implemented using ANTLR4 to create a domain language parser for describing graphs and animating graph algorithms.  
+  The parser generates an AST (abstract syntax tree), which is then processed into a graph model (`ConcreteGraph`). This model serves as a basis for further semantic analysis, running algorithms, and generating `.dot` visualizations.
 # Token definitions
-[to be completed]
+| Token     | Wartość | Reprezentacja |
+|-----------|---------|----------------|
+| T__0      | 1       | `';'`          |
+| T__1      | 2       | `'var'`        |
+| T__2      | 3       | `'='`          |
+| T__3      | 4       | `'node'`       |
+| T__4      | 5       | `'edge'`       |
+| T__5      | 6       | `'attributes'` |
+| T__6      | 7       | `'directed'`   |
+| T__7      | 8       | `'undirected'` |
+| T__8      | 9       | `'graph'`      |
+| T__9      | 10      | `'{'`          |
+| T__10     | 11      | `'}'`          |
+| T__11     | 12      | `'--'`         |
+| T__12     | 13      | `'->'`         |
+| T__13     | 14      | `'<-'`         |
+| T__14     | 15      | `','`          |
+| T__15     | 16      | `'['`          |
+| T__16     | 17      | `']'`          |
+| T__17     | 18      | `':'`          |
+| T__18     | 19      | `'$'`          |
+| T__19     | 20      | `'run'`        |
+| T__20     | 21      | `'with'`       |
+| T__21     | 22      | `'('`          |
+| T__22     | 23      | `')'`          |
+| T__23     | 24      | `'.'`          |
+| ID        | 25      |                |
+| NUMBER    | 26      |                |
+| STRING    | 27      |                |
+| WS        | 28      |                |
+| COMMENT   | 29      |                |
+| COMMENT_LINE | 30   |                |
 # Grammar
 ##### PROGRAM STRUCTURE
 program       ::= { var_decl ";" } { graph_decl ";" } { command ";" }
@@ -80,7 +112,8 @@ letter        ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
 digit         ::= "0" | "1" | ... | "9"
 char          ::= any_character_except_the_terminating_quote
 # Scanner/Parser Tools
-[to be completed]
+**ANTLR4** - in order to generate parser  
+**Graphviz** -to generate and render .dot files
 # External Libraries / Packages
 We may ues Graphviz and libraries for code visuaization
 # Usage Instructions
