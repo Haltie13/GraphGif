@@ -1,5 +1,4 @@
 
-# Import all classes from submodules
 from .values import (
     ASTNode, Value, VarRef, NodeVarRef, EdgeVarRef, AttrVarRef, Attribute,
     GraphDirection, VarType, EdgeOperator, GlobalAttrType, AttributeOperator
@@ -22,22 +21,16 @@ from .factories import ASTFactory
 
 # Export all public classes
 __all__ = [
-    # Base classes and values
     'ASTNode', 'Value', 'VarRef', 'NodeVarRef', 'EdgeVarRef', 'AttrVarRef', 'Attribute',
     
-    # Enums
     'GraphDirection', 'VarType', 'EdgeOperator', 'GlobalAttrType', 'AttributeOperator',
     
-    # Expressions
     'NodeList', 'AttrList', 'EdgeDecl', 'EdgeList',
     'NodeExpression', 'EdgeExpression', 'AttributeExpression', 'VarValue',
     
-    # Statements
     'NodeDecl', 'Path', 'Argument', 'Command', 'Statement',
     
-    # AST nodes
     'VarDecl', 'GlobalAttrDecl', 'GraphDecl', 'Program',
     
-    # Factory
     'ASTFactory'
 ]
