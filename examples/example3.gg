@@ -1,0 +1,13 @@
+var attributes edge_weights = [weight=5, color='red'];
+
+directed graph WeightedGraph {
+    edge [style='bold'];
+    node [shape='box'];
+    
+    Start, Middle, End;
+    Start -> Middle $edge_weights;
+    Middle -> End [weight=3];
+    End -> Start [weight=1, style='dashed'];
+}
+
+run WeightedGraph with (output='weighted.svg', format='svg');

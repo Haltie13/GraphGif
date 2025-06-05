@@ -1,3 +1,4 @@
+import os
 from parsing import parse_graphgif_file
 from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
 
@@ -7,8 +8,6 @@ for i, example_file in enumerate(os.listdir(example_dir)):
     example_path = os.path.join(example_dir, example_file)
     print('\n' + '-'* 10 + f' EXAMPLE: {example_file} ' + '-'* 10)
     ast, graph_model = parse_graphgif_file(example_path)
-    print(f"AST type: {type(ast)}")
-    print(f"Graph model type: {type(graph_model)}")
 
     printer = GraphgifPrettyPrinter()
     printer.visit_program(ast)
