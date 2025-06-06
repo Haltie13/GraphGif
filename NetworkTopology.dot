@@ -1,0 +1,20 @@
+digraph NetworkTopology {
+  graph [ [rankdir="TB", bgcolor="white"]];
+  node [ [fontname="Arial"]];
+  edge [ [fontsize=12]];
+  Server1 [fontname="Arial", shape="box", color="red", style="filled"];
+  Server2 [fontname="Arial", shape="box", color="red", style="filled"];
+  Server3 [fontname="Arial", shape="box", color="red", style="filled"];
+  Client1 [fontname="Arial", shape="ellipse", color="blue", style="filled"];
+  Client2 [fontname="Arial", shape="ellipse", color="blue", style="filled"];
+  Client3 [fontname="Arial", shape="ellipse", color="blue", style="filled"];
+  Client4 [fontname="Arial", shape="ellipse", color="blue", style="filled"];
+  LoadBalancer [fontname="Arial", shape="diamond", color="green"];
+  LoadBalancer -> Server1 [fontsize=12, label="HTTP"];
+  LoadBalancer -> Server2 [fontsize=12, label="HTTP"];
+  LoadBalancer -> Server3 [fontsize=12, label="HTTP"];
+  Client1 -> LoadBalancer [fontsize=12];
+  Client2 -> LoadBalancer [fontsize=12];
+  Client3 -> LoadBalancer [fontsize=12];
+  Client4 -> LoadBalancer [fontsize=12];
+}

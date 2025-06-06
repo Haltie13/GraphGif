@@ -1,10 +1,14 @@
 from parsing.ast_builder import parse_graphgif_file
-from visitors.ast_to_dot import ast_to_dot
+from generators import DOTGenerator
 
-ast, _ = parse_graphgif_file("examples/example4.gg")
-dot_dict = ast_to_dot(ast)
+_, graph_model = parse_graphgif_file("examples/example4.gg")
+
+dot_gen = DOTGenerator()
+dot_dict = dot_gen.generate_dot(graph_model)
 
 for name, dot_str in dot_dict.items():
-    with open(f"{name}.dot", "w", encoding="utf-8") as f:
+    output_path = f"{name}.dot"
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(dot_str)
-    print(f"Zapisano {name}.dot")
+    print(f"Zapisano {output_path}")
+

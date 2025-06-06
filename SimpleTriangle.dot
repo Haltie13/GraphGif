@@ -1,0 +1,9 @@
+graph SimpleTriangle {
+  node [ [fillcolor="lightgray"]];
+  A [fillcolor="lightgray", shape="circle", color="blue"];
+  B [fillcolor="lightgray", shape="circle", color="blue"];
+  C [fillcolor="lightgray", shape="circle", color="blue"];
+  A -- B;
+  B -- C;
+  C -- A;
+}
