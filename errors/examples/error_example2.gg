@@ -1,0 +1,27 @@
+var node servers = Server1, Server2, Server3;
+var node clients = Client1, Client2, Client3, Client4;
+var attributes server_attrs = [shape='box', color='red', style='filled'];
+var attributes client_attrs = [shape='ellipse', color='blue', style='filled'];
+
+directed graph NetworkTopology {
+    graph [rankdir='TB', bgcolor='white'];
+    node [fontname='Arial'];
+    edge [fontsize=12]
+
+    $servers $server_attrs;
+    $clients $client_attrs;
+
+    // Load balancer connections
+    LoadBalancer [shape='diamond', color='green'];
+    LoadBalancer -> Server1 [label='HTTP'];
+    LoadBalancer -> Server2 [label='HTTP'];
+    LoadBalancer -> Server3 [label='HTTP'];
+
+    // Client connections
+    Client1 -> LoadBalancer;
+    Client2 -> LoadBalancer;
+    Client3 -> LoadBalancer;
+    Client4 -> LoadBalancer;
+}
+
+run NetworkTopology with (output='network.png', dpi=300);
