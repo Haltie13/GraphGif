@@ -3,7 +3,7 @@ from parsing import parse_graphgif_file
 from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
 from algorithms import AlgorithmExecutor
 
-example_dir = './examples'
+example_dir = '../examples'
 executor = AlgorithmExecutor()
 
 for example_file in os.listdir(example_dir):

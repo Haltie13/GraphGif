@@ -19,6 +19,7 @@ from .ast_nodes import (
 
 from .factories import ASTFactory
 
+
 # Export all public classes
 __all__ = [
     'ASTNode', 'Value', 'VarRef', 'NodeVarRef', 'EdgeVarRef', 'AttrVarRef', 'Attribute',
@@ -32,5 +33,6 @@ __all__ = [
     
     'VarDecl', 'GlobalAttrDecl', 'GraphDecl', 'Program',
     
-    'ASTFactory'
+    'ASTFactory',
+
 ]
