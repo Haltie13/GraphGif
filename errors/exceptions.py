@@ -1,7 +1,3 @@
-from antlr4 import *
-from antlr4.error.ErrorListener import ErrorListener
-
-
 class GraphgifError(Exception):
     """Base exception for all Graphgif errors."""
 
@@ -87,42 +83,3 @@ class DuplicateDeclarationError(SemanticError):
         super().__init__(f"Duplicate {declaration_type} declaration: '{name}'", line, column, context)
         self.name = name
         self.declaration_type = declaration_type
-
-
-class GraphGifErrorListener(ErrorListener):
-    """Custom error listener that converts ANTLR errors to our exception hierarchy."""
-
-    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        # Extract context if possible
-        context = self._extract_context(recognizer, offendingSymbol)
-
-        if isinstance(recognizer, Lexer):
-            raise LexerError(msg, line, column, context)
-        else:
-            raise ParserError(msg, line, column, context)
-
-    def _extract_context(self, recognizer, offendingSymbol):
-        """Extract context around the error location."""
-        if hasattr(recognizer, 'inputStream'):
-            input_stream = recognizer.inputStream
-            if hasattr(input_stream, 'tokenSource'):
-                input_stream = input_stream.tokenSource.inputStream
-
-            if hasattr(input_stream, 'strdata'):
-                content = input_stream.strdata
-                lines = content.split('\n')
-                if 0 <= line - 1 < len(lines):
-                    return lines[line - 1]
-        return None
-
-    def reportAmbiguity(self, recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs):
-        # Optionally handle ambiguity warnings
-        pass
-
-    def reportAttemptingFullContext(self, recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs):
-        # Optionally handle full context attempt warnings
-        pass
-
-    def reportContextSensitivity(self, recognizer, dfa, startIndex, stopIndex, prediction, configs):
-        # Optionally handle context sensitivity warnings
-        pass

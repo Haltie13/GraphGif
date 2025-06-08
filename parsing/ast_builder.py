@@ -6,6 +6,8 @@ This module provides utilities to convert ANTLR parse trees to our structured AS
 import sys
 import os
 
+from errors import *
+
 current_dir = os.path.dirname(__file__)
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
@@ -315,11 +317,24 @@ def parse_graphgif(input_text: str) -> tuple:
     """Parse Graphgif source code and return AST and graph model."""
     
     input_stream = InputStream(input_text)
+
     lexer = GraphgifLexer(input_stream)
+    error_listener = GraphGifErrorListener() # added error listener
+    lexer.removeErrorListeners()
+    lexer.addErrorListener(error_listener)
+
     token_stream = CommonTokenStream(lexer)
+
     parser = GraphgifParser(token_stream)
+    parser.removeErrorListeners()
+    parser.addErrorListener(error_listener)
+
     tree = parser.program()
-    
+
+    # Check for errors
+    if error_listener.has_errors():
+        error_listener.print_errors()
+
     ast_builder = ASTBuilder()
     walker = ParseTreeWalker()
     walker.walk(ast_builder, tree)
