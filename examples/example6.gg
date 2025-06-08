@@ -1,0 +1,6 @@
+var attributes broken = [color='blue', size='NaN' + 1];
+
+undirected graph BadAttrLogic {
+    node $broken;
+    A;
+}

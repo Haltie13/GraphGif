@@ -1,6 +1,7 @@
 from parsing import parse_graphgif_file
 from visitors import GraphgifPrettyPrinter, GraphStatisticsVisitor
-
+from generators import DOTGenerator
+import os
 example_dir = './examples'
 
 for i, example_file in enumerate(os.listdir(example_dir)):
@@ -25,3 +26,5 @@ for i, example_file in enumerate(os.listdir(example_dir)):
     print("\nStatistics:")
     for key, value in stats.items():
         print(f"{key}: {value}")
+dot_gen = DOTGenerator()
+dot_gen.generate_dot("examples/example1.gg")    
