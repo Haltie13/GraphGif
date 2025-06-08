@@ -7,11 +7,13 @@ class DOTGenerator:
     def generate_dot(self, graph_model: GraphModel) -> dict[str, str]:
         result = {}
         for graph in graph_model.graphs.values():
-            self.output = []
-            self.generate_graph_dot(graph)
-            result[graph.name] = "\n".join(self.output)
+            try:
+                self.output = []
+                self.generate_graph_dot(graph)
+                result[graph.name] = "\n".join(self.output)
+            except Exception as e:
+                result[graph.name] = f"// Error generating DOT: {e}"
         return result
-
 
     def generate_graph_dot(self, concrete_graph: ConcreteGraph) -> None:
         lines = []
@@ -20,6 +22,7 @@ class DOTGenerator:
 
         lines.append(f"{graph_type} {concrete_graph.name} {{")
 
+        # Global declarations (still needed in DOT syntax for completeness)
         if concrete_graph.global_graph_attributes:
             lines.append(f"  graph [{self._format_attributes(concrete_graph.global_graph_attributes)}];")
         if concrete_graph.global_node_attributes:
@@ -27,12 +30,18 @@ class DOTGenerator:
         if concrete_graph.global_edge_attributes:
             lines.append(f"  edge [{self._format_attributes(concrete_graph.global_edge_attributes)}];")
 
+        # Nodes with attributes: merge global + local, give priority to local
         for node in concrete_graph.nodes.values():
-            attr_str = self._format_attributes(node.attributes)
+            merged_attrs = {**concrete_graph.global_node_attributes, **node.attributes}
+            attr_str = self._format_attributes(merged_attrs)
             lines.append(f"  {self._escape(node.id)}{attr_str};")
 
+        # Edges with attributes: merge global + local, give priority to local
         for edge in concrete_graph.edges:
-            attr_str = self._format_attributes(edge.attributes)
+            if edge.source not in concrete_graph.nodes or edge.target not in concrete_graph.nodes:
+                raise ValueError(f"Edge references unknown nodes: {edge.source} or {edge.target}")
+            merged_attrs = {**concrete_graph.global_edge_attributes, **edge.attributes}
+            attr_str = self._format_attributes(merged_attrs)
             lines.append(f"  {self._escape(edge.source)} {edge_op} {self._escape(edge.target)}{attr_str};")
 
         lines.append("}")
