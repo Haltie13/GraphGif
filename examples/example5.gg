@@ -1,0 +1,10 @@
+var node test_nodes = A, B, C;
+var attributes local_attrs = [color='blue'];
+
+undirected graph OverrideExample {
+    node [shape='box', color='red'];     
+    $test_nodes $local_attrs;           
+    
+    A -- B;
+    B -- C;
+}
