@@ -319,7 +319,7 @@ def parse_graphgif(input_text: str) -> tuple:
     input_stream = InputStream(input_text)
 
     lexer = GraphgifLexer(input_stream)
-    error_listener = GraphGifErrorListener() # added error listener
+    error_listener = GraphGifErrorListener()
     lexer.removeErrorListeners()
     lexer.addErrorListener(error_listener)
 
@@ -331,7 +331,6 @@ def parse_graphgif(input_text: str) -> tuple:
 
     tree = parser.program()
 
-    # Check for errors
     if error_listener.has_errors():
         error_listener.print_errors()
 

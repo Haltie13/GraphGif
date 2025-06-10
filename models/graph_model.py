@@ -48,6 +48,11 @@ class ConcreteGraph:
     global_edge_attributes: Dict[str, Any] = field(default_factory=dict)
     global_graph_attributes: Dict[str, Any] = field(default_factory=dict)
     
+    @property
+    def is_directed(self) -> bool:
+        """Compatibility property for algorithms that expect is_directed."""
+        return self.directed
+    
     def add_node(self, node_id: str, attributes: Optional[Dict[str, Any]] = None):
         """Add a node to the graph."""
         # Merge global node attributes with specific attributes

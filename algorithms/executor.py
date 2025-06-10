@@ -40,7 +40,14 @@ class AlgorithmExecutor:
                 'reason': f"Algorithm '{algorithm_name}' not found"
             }
 
-        validation = algorithm.validate_graph(graph_model)
+        # Extract the first concrete graph from the model
+        if hasattr(graph_model, 'graphs') and graph_model.graphs:
+            concrete_graph = next(iter(graph_model.graphs.values()))
+        else:
+            # If it's already a ConcreteGraph, use it directly
+            concrete_graph = graph_model
+
+        validation = algorithm.validate_graph(concrete_graph)
         return {
             'valid': validation.is_valid,
             'reason': validation.reason
@@ -56,13 +63,28 @@ class AlgorithmExecutor:
                 error_message=f"Algorithm '{algorithm_name}' not found"
             )
 
-        return algorithm.execute(graph_model, **kwargs)
+
+        if hasattr(graph_model, 'graphs') and graph_model.graphs:
+            concrete_graph = next(iter(graph_model.graphs.values()))
+        else:
+            concrete_graph = graph_model
+
+        return algorithm.execute(concrete_graph, **kwargs)
 
     def get_algorithms_for_graph(self, graph_model) -> Dict[str, Dict]:
         """Get all algorithms that can run on this graph."""
         results = {}
+        
+        # Extract the first concrete graph from the model
+        # (assuming we're testing against the first graph)
+        if hasattr(graph_model, 'graphs') and graph_model.graphs:
+            concrete_graph = next(iter(graph_model.graphs.values()))
+        else:
+            # If it's already a ConcreteGraph, use it directly
+            concrete_graph = graph_model
+            
         for name, algorithm in self.algorithms.items():
-            validation = algorithm.validate_graph(graph_model)
+            validation = algorithm.validate_graph(concrete_graph)
             results[name] = {
                 'name': algorithm.name,
                 'type': algorithm.algorithm_type.value,

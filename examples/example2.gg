@@ -7,6 +7,6 @@ undirected graph SimpleTriangle {
     A -- B;
     B -- C;
     C -- A;
-}
+};
 
 run SimpleTriangle with (output='triangle.png');

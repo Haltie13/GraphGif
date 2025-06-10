@@ -13,8 +13,6 @@ for example_file in os.listdir(example_dir):
     try:
         ast, graph_model = parse_graphgif_file(example_path)
 
-        # Existing code...
-
         # Algorithm analysis
         print("\nAlgorithm Compatibility:")
         print("=" * 40)

@@ -22,6 +22,6 @@ directed graph NetworkTopology {
     Client2 -> LoadBalancer;
     Client3 -> LoadBalancer;
     Client4 -> LoadBalancer;
-}
+};
 
-run NetworkTopology with (output='network.png', dpi=300);
+run NetworkTopology with (output='network.png');

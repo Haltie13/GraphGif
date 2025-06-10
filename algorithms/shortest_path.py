@@ -11,48 +11,37 @@ class Dijkstra(GraphAlgorithm):
         self.requires_weighted = True
         self.min_nodes = 2
 
-    def validate_graph(self, graph_model) -> ValidationResult:
+    def validate_graph(self, concrete_graph) -> ValidationResult:
         """Validate Dijkstra can be executed."""
-        if not graph_model.graphs:
-            return ValidationResult(False, "No graphs available")
-
-        concrete_graph = list(graph_model.graphs.values())[0]
-
         # Basic validation
         basic_result = self._validate_basic_requirements(concrete_graph)
         if not basic_result:
             return basic_result
 
         # Check for negative weights
-        for source, target, attrs in concrete_graph.edges:
-            weight = attrs.get('weight', 1)
+        for edge in concrete_graph.edges:
+            weight = edge.attributes.get('weight', 1)
             try:
                 weight = float(weight)
                 if weight < 0:
-                    return ValidationResult(False, f"Negative weight found on edge {source}->{target}: {weight}")
+                    return ValidationResult(False, f"Negative weight found on edge {edge.source}->{edge.target}: {weight}")
             except (ValueError, TypeError):
-                return ValidationResult(False, f"Invalid weight on edge {source}->{target}: {weight}")
+                return ValidationResult(False, f"Invalid weight on edge {edge.source}->{edge.target}: {weight}")
 
         return ValidationResult(True)
 
-    def execute(self, graph_model, start_node: str = None, target_node: str = None,
-                graph_name: str = None) -> AlgorithmResult:
+    def execute(self, concrete_graph, start_node: str = None, target_node: str = None,
+                **kwargs) -> AlgorithmResult:
         """Execute Dijkstra's algorithm."""
         start_time = time.time()
 
-        validation = self.validate_graph(graph_model)
+        validation = self.validate_graph(concrete_graph)
         if not validation:
             return AlgorithmResult(
                 success=False,
                 states=[],
                 error_message=validation.reason
             )
-
-        # Get target graph
-        if graph_name and graph_name in graph_model.graphs:
-            concrete_graph = graph_model.graphs[graph_name]
-        else:
-            concrete_graph = list(graph_model.graphs.values())[0]
 
         # Determine start node
         if start_node is None:
@@ -74,14 +63,16 @@ class Dijkstra(GraphAlgorithm):
 
         # Build adjacency list with weights
         adj_list = {node: [] for node in concrete_graph.nodes}
-        for source, target, attrs in concrete_graph.edges:
-            weight = float(attrs.get('weight', 1))
-            adj_list[source].append((target, weight))
+        for edge in concrete_graph.edges:
+            weight = float(edge.attributes.get('weight', 1))
+            adj_list[edge.source].append((edge.target, weight))
             if not concrete_graph.is_directed:
-                adj_list[target].append((source, weight))
+                adj_list[edge.target].append((edge.source, weight))
 
         # Execute Dijkstra
         states = []
+        # Note: Dijkstra requires positive infinity for unvisited nodes
+        # to correctly identify shortest paths. Negative infinity would break the algorithm.
         distances = {node: float('inf') for node in concrete_graph.nodes}
         distances[start_node] = 0
         parent = {node: None for node in concrete_graph.nodes}

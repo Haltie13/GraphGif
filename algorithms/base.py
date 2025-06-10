@@ -88,7 +88,7 @@ class GraphAlgorithm(ABC):
 
         # Check if weighted edges are required
         if self.requires_weighted:
-            has_weights = any('weight' in edge_attrs for _, _, edge_attrs in concrete_graph.edges)
+            has_weights = all('weight' in edge.attributes for edge in concrete_graph.edges)
             if not has_weights:
                 return ValidationResult(False, "Algorithm requires weighted edges")
 
@@ -112,10 +112,10 @@ class GraphAlgorithm(ABC):
 
         # Build adjacency list
         adj_list = {node: [] for node in concrete_graph.nodes}
-        for source, target, _ in concrete_graph.edges:
-            adj_list[source].append(target)
+        for edge in concrete_graph.edges:
+            adj_list[edge.source].append(edge.target)
             if not concrete_graph.is_directed:
-                adj_list[target].append(source)
+                adj_list[edge.target].append(edge.source)
 
         while queue:
             current = queue.pop(0)

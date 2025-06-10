@@ -10,14 +10,8 @@ class BFS(GraphAlgorithm):
         super().__init__("Breadth-First Search", AlgorithmType.TRAVERSAL)
         self.min_nodes = 1
 
-    def validate_graph(self, graph_model) -> ValidationResult:
+    def validate_graph(self, concrete_graph) -> ValidationResult:
         """Validate BFS can be executed."""
-        if not graph_model.graphs:
-            return ValidationResult(False, "No graphs available")
-
-        # For now, use first graph
-        concrete_graph = list(graph_model.graphs.values())[0]
-
         # Basic validation
         basic_result = self._validate_basic_requirements(concrete_graph)
         if not basic_result:
@@ -29,24 +23,18 @@ class BFS(GraphAlgorithm):
 
         return ValidationResult(True)
 
-    def execute(self, graph_model, start_node: str = None, graph_name: str = None) -> AlgorithmResult:
+    def execute(self, concrete_graph, start_node: str = None, **kwargs) -> AlgorithmResult:
         """Execute BFS algorithm."""
         start_time = time.time()
 
         # Validation
-        validation = self.validate_graph(graph_model)
+        validation = self.validate_graph(concrete_graph)
         if not validation:
             return AlgorithmResult(
                 success=False,
                 states=[],
                 error_message=validation.reason
             )
-
-        # Get target graph
-        if graph_name and graph_name in graph_model.graphs:
-            concrete_graph = graph_model.graphs[graph_name]
-        else:
-            concrete_graph = list(graph_model.graphs.values())[0]
 
         # Determine start node
         if start_node is None:
@@ -60,10 +48,10 @@ class BFS(GraphAlgorithm):
 
         # Build adjacency list
         adj_list = {node: [] for node in concrete_graph.nodes}
-        for source, target, _ in concrete_graph.edges:
-            adj_list[source].append(target)
+        for edge in concrete_graph.edges:
+            adj_list[edge.source].append(edge.target)
             if not concrete_graph.is_directed:
-                adj_list[target].append(source)
+                adj_list[edge.target].append(edge.source)
 
         # Execute BFS
         states = []
@@ -145,12 +133,8 @@ class DFS(GraphAlgorithm):
         super().__init__("Depth-First Search", AlgorithmType.TRAVERSAL)
         self.min_nodes = 1
 
-    def validate_graph(self, graph_model) -> ValidationResult:
+    def validate_graph(self, concrete_graph) -> ValidationResult:
         """Validate DFS can be executed."""
-        if not graph_model.graphs:
-            return ValidationResult(False, "No graphs available")
-
-        concrete_graph = list(graph_model.graphs.values())[0]
         basic_result = self._validate_basic_requirements(concrete_graph)
         if not basic_result:
             return basic_result
@@ -160,23 +144,17 @@ class DFS(GraphAlgorithm):
 
         return ValidationResult(True)
 
-    def execute(self, graph_model, start_node: str = None, graph_name: str = None) -> AlgorithmResult:
+    def execute(self, concrete_graph, start_node: str = None, **kwargs) -> AlgorithmResult:
         """Execute DFS algorithm."""
         start_time = time.time()
 
-        validation = self.validate_graph(graph_model)
+        validation = self.validate_graph(concrete_graph)
         if not validation:
             return AlgorithmResult(
                 success=False,
                 states=[],
                 error_message=validation.reason
             )
-
-        # Get target graph
-        if graph_name and graph_name in graph_model.graphs:
-            concrete_graph = graph_model.graphs[graph_name]
-        else:
-            concrete_graph = list(graph_model.graphs.values())[0]
 
         # Determine start node
         if start_node is None:
@@ -190,10 +168,10 @@ class DFS(GraphAlgorithm):
 
         # Build adjacency list
         adj_list = {node: [] for node in concrete_graph.nodes}
-        for source, target, _ in concrete_graph.edges:
-            adj_list[source].append(target)
+        for edge in concrete_graph.edges:
+            adj_list[edge.source].append(edge.target)
             if not concrete_graph.is_directed:
-                adj_list[target].append(source)
+                adj_list[edge.target].append(edge.source)
 
         # Execute DFS
         states = []
