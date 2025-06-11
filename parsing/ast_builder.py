@@ -21,6 +21,7 @@ from .grammar.GraphgifListener import GraphgifListener
 from models import *
 from models.graph_model import GraphModel, ConcreteGraph
 
+from visitors.graph_visitor import GraphVisitor
 
 class ASTBuilder(GraphgifListener):
     """ANTLR listener that builds our AST model from the parse tree."""
@@ -323,6 +324,18 @@ def parse_graphgif(input_text: str) -> tuple:
     lexer.removeErrorListeners()
     lexer.addErrorListener(error_listener)
 
+    # Collect tokens
+    tokens = []
+    token = lexer.nextToken()
+    while token.type != Token.EOF:
+        tokens.append(token)
+        token = lexer.nextToken()
+
+    # Rewind lexer for parser
+    input_stream.seek(0)
+    lexer = GraphgifLexer(input_stream)
+    lexer.removeErrorListeners()
+    lexer.addErrorListener(error_listener)
     token_stream = CommonTokenStream(lexer)
 
     parser = GraphgifParser(token_stream)
@@ -331,15 +344,21 @@ def parse_graphgif(input_text: str) -> tuple:
 
     tree = parser.program()
 
-    # Check for errors
-    if error_listener.has_errors():
-        error_listener.print_errors()
-
     ast_builder = ASTBuilder()
     walker = ParseTreeWalker()
     walker.walk(ast_builder, tree)
     
-    return ast_builder.program, ast_builder.get_graph_model()
+    graph_model = ast_builder.get_graph_model()
+
+    # handling semantic graph errors
+    visitor = GraphVisitor(error_listener, tokens)
+    for graph in graph_model.graphs.values():
+        visitor.visit(graph)
+
+    if error_listener.has_errors():
+        error_listener.print_errors()
+    
+    return ast_builder.program, graph_model
 
 
 def parse_graphgif_file(file_path: str) -> tuple:

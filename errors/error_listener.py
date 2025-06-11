@@ -105,3 +105,15 @@ class GraphGifErrorListener(ErrorListener):
 
     def reportContextSensitivity(self, *args):
         pass
+    
+    def report_graph_direction_error(self, line, column, message, context_line=None):
+        """Report a semantic error related to graph direction."""
+        error = {
+            'type': 'semantic',
+            'message': message,
+            'line': line,
+            'column': column,
+            'context': context_line,
+            'offending_symbol': None
+        }
+        self.errors.append(error)
