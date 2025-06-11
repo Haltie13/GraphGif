@@ -12,4 +12,4 @@ undirected graph G {
     B -> E;
 };
 
-run G with (algorithm='bfs', start_node: 'A', output: 'nowy_folder');
+run G with (algorithm='dfs', start_node: 'A', output: 'wyjście/pliczek');
