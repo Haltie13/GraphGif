@@ -1,0 +1,24 @@
+GraphGif Algorithm Execution Summary
+========================================
+
+Graph: WeightedGraph
+Type: Directed
+Nodes: 4
+Edges: 5
+
+Algorithm Execution:
+Success: True
+Steps: 5
+Execution Time: 0.0001s
+
+Final Result:
+  distances: {'S': 0, 'A': 2.0, 'B': 3.0, 'T': 6.0}
+  shortest_path: ['S', 'A', 'B', 'T']
+  path_length: 6.0
+
+Generated Files:
+  Step 0: dijkstra_sample_step_000_000.dot
+  Step 1: dijkstra_sample_step_001_001.dot
+  Step 2: dijkstra_sample_step_002_002.dot
+  Step 3: dijkstra_sample_step_003_003.dot
+  Step 6: dijkstra_sample_step_004_006.dot

@@ -338,11 +338,18 @@ def parse_graphgif(input_text: str) -> tuple:
     walker = ParseTreeWalker()
     walker.walk(ast_builder, tree)
     
-    return ast_builder.program, ast_builder.get_graph_model()
+    # Execute commands if any
+    execution_results = None
+    if ast_builder.commands:
+        from .command_executor import CommandExecutor
+        executor = CommandExecutor(ast_builder.get_graph_model())
+        execution_results = executor.execute_commands(ast_builder.commands)
+    
+    return ast_builder.program, ast_builder.get_graph_model(), execution_results
 
 
 def parse_graphgif_file(file_path: str) -> tuple:
-    """Parse Graphgif file and return AST and graph model."""
+    """Parse Graphgif file and return AST, graph model, and execution results."""
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     return parse_graphgif(content)

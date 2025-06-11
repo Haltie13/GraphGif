@@ -1,0 +1,192 @@
+// Large Dijkstra test graph
+// This file contains a substantial weighted directed graph for testing Dijkstra's algorithm
+// The graph represents a transportation network with realistic distances
+
+directed graph LargeTransportNetwork {
+    // Major hub cities
+    hub1 [label='CentralHub', color='red'];
+    hub2 [label='NorthHub', color='red'];
+    hub3 [label='SouthHub', color='red'];
+    hub4 [label='EastHub', color='red'];
+    hub5 [label='WestHub', color='red'];
+
+    // Regional cities - North region
+    n1 [label='NorthCity1', color='lightblue'];
+    n2 [label='NorthCity2', color='lightblue'];
+    n3 [label='NorthCity3', color='lightblue'];
+    n4 [label='NorthCity4', color='lightblue'];
+    n5 [label='NorthCity5', color='lightblue'];
+    n6 [label='NorthCity6', color='lightblue'];
+    n7 [label='NorthCity7', color='lightblue'];
+    n8 [label='NorthCity8', color='lightblue'];
+
+    // Regional cities - South region
+    s1 [label='SouthCity1', color='lightgreen'];
+    s2 [label='SouthCity2', color='lightgreen'];
+    s3 [label='SouthCity3', color='lightgreen'];
+    s4 [label='SouthCity4', color='lightgreen'];
+    s5 [label='SouthCity5', color='lightgreen'];
+    s6 [label='SouthCity6', color='lightgreen'];
+    s7 [label='SouthCity7', color='lightgreen'];
+    s8 [label='SouthCity8', color='lightgreen'];
+
+    // Regional cities - East region
+    e1 [label='EastCity1', color='lightyellow'];
+    e2 [label='EastCity2', color='lightyellow'];
+    e3 [label='EastCity3', color='lightyellow'];
+    e4 [label='EastCity4', color='lightyellow'];
+    e5 [label='EastCity5', color='lightyellow'];
+    e6 [label='EastCity6', color='lightyellow'];
+    e7 [label='EastCity7', color='lightyellow'];
+    e8 [label='EastCity8', color='lightyellow'];
+
+    // Regional cities - West region
+    w1 [label='WestCity1', color='lightcoral'];
+    w2 [label='WestCity2', color='lightcoral'];
+    w3 [label='WestCity3', color='lightcoral'];
+    w4 [label='WestCity4', color='lightcoral'];
+    w5 [label='WestCity5', color='lightcoral'];
+    w6 [label='WestCity6', color='lightcoral'];
+    w7 [label='WestCity7', color='lightcoral'];
+    w8 [label='WestCity8', color='lightcoral'];
+
+    // Additional peripheral cities
+    p1 [label='Peripheral1', color='lightgray'];
+    p2 [label='Peripheral2', color='lightgray'];
+    p3 [label='Peripheral3', color='lightgray'];
+    p4 [label='Peripheral4', color='lightgray'];
+    p5 [label='Peripheral5', color='lightgray'];
+    p6 [label='Peripheral6', color='lightgray'];
+    p7 [label='Peripheral7', color='lightgray'];
+    p8 [label='Peripheral8', color='lightgray'];
+
+    // Inter-hub connections (major highways)
+    hub1 -> hub2 [weight=120, label='Highway1', color='red'];
+    hub1 -> hub3 [weight=150, label='Highway2', color='red'];
+    hub1 -> hub4 [weight=180, label='Highway3', color='red'];
+    hub1 -> hub5 [weight=200, label='Highway4', color='red'];
+    hub2 -> hub3 [weight=220, label='Highway5', color='red'];
+    hub2 -> hub4 [weight=160, label='Highway6', color='red'];
+    hub2 -> hub5 [weight=250, label='Highway7', color='red'];
+    hub3 -> hub4 [weight=190, label='Highway8', color='red'];
+    hub3 -> hub5 [weight=140, label='Highway9', color='red'];
+    hub4 -> hub5 [weight=210, label='Highway10', color='red'];
+
+    // Hub to regional connections
+    // North region
+    hub2 -> n1 [weight=45, label='R1'];
+    hub2 -> n2 [weight=60, label='R2'];
+    hub1 -> n3 [weight=85, label='R3'];
+    hub1 -> n4 [weight=70, label='R4'];
+
+    // South region
+    hub3 -> s1 [weight=55, label='R5'];
+    hub3 -> s2 [weight=40, label='R6'];
+    hub1 -> s3 [weight=95, label='R7'];
+    hub1 -> s4 [weight=75, label='R8'];
+
+    // East region
+    hub4 -> e1 [weight=50, label='R9'];
+    hub4 -> e2 [weight=65, label='R10'];
+    hub1 -> e3 [weight=90, label='R11'];
+    hub1 -> e4 [weight=80, label='R12'];
+
+    // West region
+    hub5 -> w1 [weight=35, label='R13'];
+    hub5 -> w2 [weight=55, label='R14'];
+    hub1 -> w3 [weight=110, label='R15'];
+    hub1 -> w4 [weight=95, label='R16'];
+
+    // Regional internal connections
+    // North region internal
+    n1 -> n2 [weight=25, label='N1'];
+    n2 -> n3 [weight=30, label='N2'];
+    n3 -> n4 [weight=20, label='N3'];
+    n4 -> n5 [weight=35, label='N4'];
+    n5 -> n6 [weight=28, label='N5'];
+    n6 -> n7 [weight=22, label='N6'];
+    n7 -> n8 [weight=33, label='N7'];
+    n8 -> n1 [weight=40, label='N8'];
+    n1 -> n5 [weight=50, label='N9'];
+    n2 -> n6 [weight=45, label='N10'];
+    n3 -> n7 [weight=38, label='N11'];
+    n4 -> n8 [weight=42, label='N12'];
+
+    // South region internal
+    s1 -> s2 [weight=28, label='S1'];
+    s2 -> s3 [weight=32, label='S2'];
+    s3 -> s4 [weight=24, label='S3'];
+    s4 -> s5 [weight=36, label='S4'];
+    s5 -> s6 [weight=31, label='S5'];
+    s6 -> s7 [weight=27, label='S6'];
+    s7 -> s8 [weight=29, label='S7'];
+    s8 -> s1 [weight=43, label='S8'];
+    s1 -> s5 [weight=48, label='S9'];
+    s2 -> s6 [weight=44, label='S10'];
+    s3 -> s7 [weight=39, label='S11'];
+    s4 -> s8 [weight=41, label='S12'];
+
+    // East region internal
+    e1 -> e2 [weight=26, label='E1'];
+    e2 -> e3 [weight=34, label='E2'];
+    e3 -> e4 [weight=21, label='E3'];
+    e4 -> e5 [weight=37, label='E4'];
+    e5 -> e6 [weight=29, label='E5'];
+    e6 -> e7 [weight=25, label='E6'];
+    e7 -> e8 [weight=31, label='E7'];
+    e8 -> e1 [weight=44, label='E8'];
+    e1 -> e5 [weight=52, label='E9'];
+    e2 -> e6 [weight=46, label='E10'];
+    e3 -> e7 [weight=40, label='E11'];
+    e4 -> e8 [weight=43, label='E12'];
+
+    // West region internal
+    w1 -> w2 [weight=23, label='W1'];
+    w2 -> w3 [weight=35, label='W2'];
+    w3 -> w4 [weight=19, label='W3'];
+    w4 -> w5 [weight=38, label='W4'];
+    w5 -> w6 [weight=32, label='W5'];
+    w6 -> w7 [weight=26, label='W6'];
+    w7 -> w8 [weight=30, label='W7'];
+    w8 -> w1 [weight=41, label='W8'];
+    w1 -> w5 [weight=49, label='W9'];
+    w2 -> w6 [weight=47, label='W10'];
+    w3 -> w7 [weight=37, label='W11'];
+    w4 -> w8 [weight=45, label='W12'];
+
+    // Peripheral connections
+    n8 -> p1 [weight=60, label='P1'];
+    s8 -> p2 [weight=65, label='P2'];
+    e8 -> p3 [weight=58, label='P3'];
+    w8 -> p4 [weight=62, label='P4'];
+    p1 -> p2 [weight=80, label='P5'];
+    p2 -> p3 [weight=75, label='P6'];
+    p3 -> p4 [weight=70, label='P7'];
+    p4 -> p1 [weight=85, label='P8'];
+
+    // Additional peripheral cities
+    p1 -> p5 [weight=45, label='P9'];
+    p2 -> p6 [weight=50, label='P10'];
+    p3 -> p7 [weight=42, label='P11'];
+    p4 -> p8 [weight=48, label='P12'];
+    p5 -> p6 [weight=35, label='P13'];
+    p6 -> p7 [weight=38, label='P14'];
+    p7 -> p8 [weight=33, label='P15'];
+    p8 -> p5 [weight=40, label='P16'];
+
+    // Cross-regional connections (alternate routes)
+    n4 -> e2 [weight=95, label='CR1'];
+    e6 -> s3 [weight=105, label='CR2'];
+    s7 -> w5 [weight=88, label='CR3'];
+    w8 -> n6 [weight=120, label='CR4'];
+    n5 -> s1 [weight=130, label='CR5'];
+    e1 -> w3 [weight=140, label='CR6'];
+
+    // Some express routes (longer distance, faster)
+    n1 -> s8 [weight=200, label='Express1'];
+    e4 -> w2 [weight=185, label='Express2'];
+    p5 -> hub1 [weight=160, label='Express3'];
+    p7 -> hub3 [weight=170, label='Express4'];
+};
+
+run LargeTransportNetwork with (algorithm='dijkstra', start='hub1', target='p8');

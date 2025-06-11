@@ -7,7 +7,7 @@ class BFS(GraphAlgorithm):
     """Breadth-First Search algorithm."""
 
     def __init__(self):
-        super().__init__("Breadth-First Search", AlgorithmType.TRAVERSAL)
+        super().__init__("bfs", AlgorithmType.TRAVERSAL)
         self.min_nodes = 1
 
     def validate_graph(self, concrete_graph) -> ValidationResult:
@@ -130,7 +130,7 @@ class DFS(GraphAlgorithm):
     """Depth-First Search algorithm."""
 
     def __init__(self):
-        super().__init__("Depth-First Search", AlgorithmType.TRAVERSAL)
+        super().__init__("dfs", AlgorithmType.TRAVERSAL)
         self.min_nodes = 1
 
     def validate_graph(self, concrete_graph) -> ValidationResult:

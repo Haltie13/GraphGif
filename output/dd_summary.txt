@@ -1,0 +1,24 @@
+GraphGif Algorithm Execution Summary
+========================================
+
+Graph: WeightedGraph
+Type: Directed
+Nodes: 3
+Edges: 3
+
+Algorithm Execution:
+Success: True
+Steps: 5
+Execution Time: 0.0000s
+
+Final Result:
+  distances: {'Start': 0, 'Middle': 5.0, 'End': 8.0}
+  shortest_path: None
+  path_length: None
+
+Generated Files:
+  Step 0: dd_step_000_000.dot
+  Step 1: dd_step_001_001.dot
+  Step 2: dd_step_002_002.dot
+  Step 3: dd_step_003_003.dot
+  Step 4: dd_step_004_004.dot

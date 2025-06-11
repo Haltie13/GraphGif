@@ -7,7 +7,7 @@ class Dijkstra(GraphAlgorithm):
     """Dijkstra's shortest path algorithm."""
 
     def __init__(self):
-        super().__init__("Dijkstra's Algorithm", AlgorithmType.SHORTEST_PATH)
+        super().__init__("dijkstra", AlgorithmType.SHORTEST_PATH)
         self.requires_weighted = True
         self.min_nodes = 2
 
