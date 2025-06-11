@@ -12,4 +12,4 @@ undirected graph G {
     B -> E;
 };
 
-run G with (algorithm='bfs', start_node: 'A', output: 'testuje_sciezki/result.png');
+run G with (algorithm='bfs', start_node: 'A', output: 'nowy_folder');

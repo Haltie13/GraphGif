@@ -28,9 +28,10 @@ from generators.dot_generator import DotGenerator
 class CommandExecutor:
     """Executes commands from parsed GraphGif programs."""
     
-    def __init__(self, graph_model: GraphModel):
+    def __init__(self, graph_model: GraphModel, base_output_dir: str = "output"):
         self.graph_model = graph_model
         self.algorithm_executor = AlgorithmExecutor()
+        self.base_output_dir = base_output_dir
         self.results = {}
     
     def execute_commands(self, commands: List[Command]) -> Dict[str, Any]:
@@ -62,7 +63,7 @@ class CommandExecutor:
         output_files = []
         if 'output' in args or args.get('generate_output', True):
             output_files = self._generate_output(
-                target_graph, algorithm_result, args
+                target_graph, algorithm_result, args, command.graph_name, algorithm
             )
         
         return {
@@ -96,22 +97,34 @@ class CommandExecutor:
         # Default to BFS for simple traversal
         return "bfs"
     
-    def _generate_output(self, graph, algorithm_result, args: Dict[str, Any]) -> List[str]:
+    def _generate_output(self, graph, algorithm_result, args: Dict[str, Any], graph_name: str, algorithm_name: str) -> List[str]:
         """Generate output files based on arguments."""
         output_files = []
         
         # Determine output format and settings
-        output_path = args.get('output', 'output')
+        output_path = args.get('output', self.base_output_dir)
         render_images = args.get('render_images', True)
         image_format = args.get('format', 'png')
         
-        # Extract base filename from output path
-        if '.' in output_path:
-            base_filename = os.path.splitext(os.path.basename(output_path))[0]
-            output_dir = os.path.dirname(output_path) or 'output'
+        # Create filename pattern: (graph_name)_(algorithm)_...
+        base_filename = f"{graph_name}_{algorithm_name}"
+        
+        # Handle output path
+        if '.' in output_path and os.path.dirname(output_path):
+            # Full path with extension provided
+            output_dir = os.path.dirname(output_path)
+            custom_basename = os.path.splitext(os.path.basename(output_path))[0]
+            base_filename = f"{custom_basename}_{base_filename}"
+        elif os.path.isdir(output_path) or not os.path.dirname(output_path):
+            # Directory path provided
+            output_dir = output_path
         else:
-            base_filename = output_path
-            output_dir = 'output'
+            # Custom base name without directory
+            output_dir = self.base_output_dir
+            base_filename = f"{output_path}_{base_filename}"
+        
+        # Ensure output directory exists
+        os.makedirs(output_dir, exist_ok=True)
         
         # Generate visualization
         generator = DotGenerator(

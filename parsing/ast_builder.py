@@ -313,7 +313,7 @@ class ASTBuilder(GraphgifListener):
         return self.graph_model
 
 
-def parse_graphgif(input_text: str) -> tuple:
+def parse_graphgif(input_text: str, base_output_dir: str = "output") -> tuple:
     """Parse Graphgif source code and return AST and graph model."""
     
     input_stream = InputStream(input_text)
@@ -341,17 +341,17 @@ def parse_graphgif(input_text: str) -> tuple:
     execution_results = None
     if ast_builder.commands:
         from .command_executor import CommandExecutor
-        executor = CommandExecutor(ast_builder.get_graph_model())
+        executor = CommandExecutor(ast_builder.get_graph_model(), base_output_dir)
         execution_results = executor.execute_commands(ast_builder.commands)
     
     return ast_builder.program, ast_builder.get_graph_model(), execution_results
 
 
-def parse_graphgif_file(file_path: str) -> tuple:
+def parse_graphgif_file(file_path: str, base_output_dir: str = "output") -> tuple:
     """Parse Graphgif file and return AST, graph model, and execution results."""
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
-    return parse_graphgif(content)
+    return parse_graphgif(content, base_output_dir)
 
 
 def test_parser():

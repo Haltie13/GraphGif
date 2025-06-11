@@ -17,7 +17,7 @@ def test_command_execution():
     
     # Test with large_dijkstra.gg which has a command
     try:
-        ast, graph_model, execution_results = parse_graphgif_file('./examples/large_dijkstra.gg')
+        ast, graph_model, execution_results = parse_graphgif_file('./examples/large_dijkstra.gg', 'test_output')
         
         print("Parsing completed successfully")
         print(f"Found {len(graph_model.graphs)} graphs")
@@ -62,7 +62,7 @@ def test_manual_command_execution():
         
         # Manually execute commands
         if ast.commands:
-            executor = CommandExecutor(graph_model)
+            executor = CommandExecutor(graph_model, "test_output")
             results = executor.execute_commands(ast.commands)
             
             print("Manual execution results:")
