@@ -338,7 +338,6 @@ def parse_graphgif(input_text: str) -> tuple:
     walker = ParseTreeWalker()
     walker.walk(ast_builder, tree)
     
-    # Execute commands if any
     execution_results = None
     if ast_builder.commands:
         from .command_executor import CommandExecutor

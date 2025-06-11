@@ -3,9 +3,9 @@ Semantic validation for the Graphgif AST.
 This module provides validation rules and error checking for the AST.
 """
 
-from typing import List, Dict, Set, Optional
-from graphgif_model import *
-
+from typing import List, Dict, Set, Optional, Union
+from models import *
+from visitors import *
 
 class ValidationError(Exception):
     """Exception raised for validation errors."""

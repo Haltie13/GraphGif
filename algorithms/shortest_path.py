@@ -72,7 +72,7 @@ class Dijkstra(GraphAlgorithm):
         # Execute Dijkstra
         states = []
         # Note: Dijkstra requires positive infinity for unvisited nodes
-        # to correctly identify shortest paths. Negative infinity would break the algorithm.
+        # to correctly identify the shortest paths. Negative infinity would break the algorithm.
         distances = {node: float('inf') for node in concrete_graph.nodes}
         distances[start_node] = 0
         parent = {node: None for node in concrete_graph.nodes}

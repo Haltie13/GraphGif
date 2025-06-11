@@ -47,16 +47,13 @@ class CommandExecutor:
             raise ValueError(f"Graph '{command.graph_name}' not found")
         
         target_graph = self.graph_model.graphs[command.graph_name]
-        
-        # Parse command arguments
+
         args = self._parse_arguments(command.arguments)
-        
-        # Determine algorithm from arguments or context
+
         algorithm = args.get('algorithm', self._infer_algorithm(args))
         if not algorithm:
             raise ValueError("No algorithm specified or inferred")
-        
-        # Execute algorithm
+
         algorithm_result = self.algorithm_executor.execute_algorithm(
             algorithm, self.graph_model, **args
         )

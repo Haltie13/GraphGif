@@ -1,9 +1,15 @@
 var node my_nodes = E, F, G;
+var attributes atr = [weight = 4];
 
 undirected graph G {
     $my_nodes;
     A, B, C;
-    A -> B; B->C; C->A;
+    A -> B $atr;
+    B -> C $atr;
+    C -> A $atr;
+    B -> G;
+    B -> F;
+    B -> E;
 };
 
-run G with ();
+run G with (algorithm='bfs', start_node: 'A', output: 'result');
