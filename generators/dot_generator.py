@@ -226,8 +226,12 @@ class DotGenerator(BaseGenerator):
         # Add distance information for shortest path algorithms
         if state.distances and node_id in state.distances:
             distance = state.distances[node_id]
-            if distance != float('inf'):
-                current_label = attrs.get('label', node_id)
+            current_label = attrs.get('label', node_id)
+            if distance == float('inf'):
+                attrs['label'] = f"{current_label}\\nd:inf"
+            elif distance == float('-inf'):
+                attrs['label'] = f"{current_label}\\nd:-inf"
+            else:
                 attrs['label'] = f"{current_label}\\nd:{distance}"
         
         return attrs

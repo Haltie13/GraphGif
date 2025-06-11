@@ -1,15 +1,17 @@
 var node my_nodes = E, F, G;
-var attributes atr = [weight = 4];
+var attributes atr1 = [weight = 4];
+var attributes atr2 = [weight = 5];
 
-undirected graph G {
+directed graph G {
     $my_nodes;
     A, B, C;
-    A -> B $atr;
-    B -> C $atr;
-    C -> A $atr;
-    B -> G;
-    B -> F;
-    B -> E;
+    A -> B $atr2;
+    B -> C $atr2;
+    C -> A $atr1;
+    B -> G $atr1;
+    B -> F $atr1;
+    E -> B [weight = 10];
+    F-> E [weight = 1];
 };
 
-run G with (algorithm='dfs', start_node: 'A', output: 'custom_outputt/');
+run G with (algorithm='dijkstra', start_node: 'A', output: 'custom_output/', animate: 'True');
