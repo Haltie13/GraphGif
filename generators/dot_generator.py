@@ -64,11 +64,18 @@ class DotGenerator(BaseGenerator):
             raise ValueError(f"Cannot generate from failed algorithm: {algorithm_result.error_message}")
         
         self._ensure_output_dir()
+        
+        # Find maximum description length for consistent legend width
+        max_description_length = 0
+        for state in algorithm_result.states:
+            if state.description:
+                max_description_length = max(max_description_length, len(state.description))
+        
         generated_files = []
         
         for i, state in enumerate(algorithm_result.states):
             filename = f"{base_filename}_step_{i:03d}_{state.step:03d}.dot"
-            filepath = self.generate_single_state(graph, state, filename)
+            filepath = self.generate_single_state(graph, state, filename, max_description_length)
             generated_files.append(filepath)
             
             if self.render_images:
@@ -83,21 +90,22 @@ class DotGenerator(BaseGenerator):
         return generated_files
     
     def generate_single_state(self, graph: ConcreteGraph, state: GraphState,
-                             filename: str) -> str:
+                             filename: str, max_description_length: int = None) -> str:
         """Generate DOT file for a single algorithm state."""
         self._ensure_output_dir()
         
         safe_filename = self._sanitize_filename(filename)
         filepath = os.path.join(self.output_dir, safe_filename)
         
-        dot_content = self._generate_dot_content(graph, state)
+        dot_content = self._generate_dot_content(graph, state, max_description_length)
         
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(dot_content)
         
         return filepath
     
-    def _generate_dot_content(self, graph: ConcreteGraph, state: GraphState) -> str:
+    def _generate_dot_content(self, graph: ConcreteGraph, state: GraphState, 
+                             max_description_length: int = None) -> str:
         """Generate the actual DOT content for a state."""
         lines = []
         
@@ -120,7 +128,18 @@ class DotGenerator(BaseGenerator):
         lines.append('  fontsize=14;')
         lines.append('')
 
-        legend_text = state.description.replace('"', '\\"')
+        # Legend with consistent width
+        legend_text = state.description.replace('"', '\\"') if state.description else ""
+        
+        # Pad description to maximum length for consistent width
+        if max_description_length and legend_text:
+            current_length = len(state.description)
+            if current_length < max_description_length:
+                # Add padding with non-breaking spaces
+                padding_needed = max_description_length - current_length
+                # Add padding with spaces that will be invisible but maintain width
+                legend_text += " " * padding_needed
+        
         lines.append('  // Legend')
         lines.append('  legend [')
         lines.append('    shape=box,')
@@ -128,7 +147,15 @@ class DotGenerator(BaseGenerator):
         lines.append('    fillcolor=lightyellow,')
         lines.append('    fontsize=10,')
         lines.append(f'    label="{legend_text}",')
-        lines.append('    margin=0.1')
+        lines.append('    margin=0.1,')
+        # Set fixed width based on maximum description length
+        if max_description_length:
+            # Estimate width based on character count (rough approximation)
+            width = max(2.0, max_description_length * 0.1)
+            lines.append(f'    width={width:.1f},')
+            lines.append('    fixedsize=true')
+        else:
+            lines.append('    margin=0.1')
         lines.append('  ];')
         lines.append('')
 
