@@ -15,7 +15,6 @@ class CommandProcessor:
     
     def __init__(self):
         self.algorithm_executor = AlgorithmExecutor()
-        # Map command names to algorithm names
         self.algorithm_name_mapping = {
             'bfs': 'breadth-first search',
             'breadth-first': 'breadth-first search',
@@ -108,20 +107,14 @@ class CommandProcessor:
                 raise GraphgifError(f"Target node '{target_node}' not found in graph")
             processed['target_node'] = target_node
         
-        # Algorithm-specific argument processing
         if algorithm_name == "dijkstra's algorithm":
-            # Dijkstra requires start_node, optionally target_node
             if 'start_node' not in processed:
-                # Use first node as default start
                 processed['start_node'] = next(iter(graph.nodes.keys()))
         
         elif algorithm_name in ['breadth-first search', 'depth-first search']:
-            # Traversal algorithms require start_node
             if 'start_node' not in processed:
-                # Use first node as default start
                 processed['start_node'] = next(iter(graph.nodes.keys()))
         
-        # Copy other arguments as-is
         for key, value in arguments.items():
             if key not in ['start', 'from', 'target', 'to']:
                 processed[key] = value

@@ -54,6 +54,8 @@ class DotGenerator(BaseGenerator):
             'path': 'lightblue',
             'unvisited': 'lightgray'
         }
+
+        os.makedirs(self.output_dir, exist_ok=True)
     
     def generate(self, graph: ConcreteGraph, algorithm_result: AlgorithmResult,
                  base_filename: str = "graph") -> List[str]:
@@ -64,13 +66,11 @@ class DotGenerator(BaseGenerator):
         self._ensure_output_dir()
         generated_files = []
         
-        # Generate DOT file for each state
         for i, state in enumerate(algorithm_result.states):
             filename = f"{base_filename}_step_{i:03d}_{state.step:03d}.dot"
             filepath = self.generate_single_state(graph, state, filename)
             generated_files.append(filepath)
             
-            # Optionally render to image
             if self.render_images:
                 image_path = self._render_to_image(filepath)
                 if image_path:
@@ -87,14 +87,11 @@ class DotGenerator(BaseGenerator):
         """Generate DOT file for a single algorithm state."""
         self._ensure_output_dir()
         
-        # Sanitize filename
         safe_filename = self._sanitize_filename(filename)
         filepath = os.path.join(self.output_dir, safe_filename)
         
-        # Generate DOT content
         dot_content = self._generate_dot_content(graph, state)
         
-        # Write to file
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(dot_content)
         
@@ -117,12 +114,30 @@ class DotGenerator(BaseGenerator):
         lines.append('')
         
         # Title/label for the state
-        title = f"Step {state.step}: {state.description}"
+        title = f"Step {state.step}"
         lines.append(f'  label="{title}";')
         lines.append('  labelloc=top;')
-        lines.append('  fontsize=16;')
+        lines.append('  fontsize=14;')
         lines.append('')
-        
+
+        legend_text = state.description.replace('"', '\\"')
+        lines.append('  // Legend')
+        lines.append('  legend [')
+        lines.append('    shape=box,')
+        lines.append('    style="filled,rounded",')
+        lines.append('    fillcolor=lightyellow,')
+        lines.append('    fontsize=10,')
+        lines.append(f'    label="{legend_text}",')
+        lines.append('    margin=0.1')
+        lines.append('  ];')
+        lines.append('')
+
+        lines.append('  {rank=sink; legend}')
+        lines.append('')
+
+
+
+
         # Add algorithm-specific metadata as label
         if state.metadata:
             metadata_lines = self._format_metadata(state)
@@ -267,6 +282,7 @@ class DotGenerator(BaseGenerator):
         """Generate a summary file with algorithm execution information."""
         summary_filename = f"{base_filename}_summary.txt"
         filepath = os.path.join(self.output_dir, summary_filename)
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
         
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(f"GraphGif Algorithm Execution Summary\n")
