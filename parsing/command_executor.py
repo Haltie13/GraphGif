@@ -109,19 +109,39 @@ class CommandExecutor:
         # Create filename pattern: (graph_name)_(algorithm)_...
         base_filename = f"{graph_name}_{algorithm_name}"
         
-        # Handle output path
-        if '.' in output_path and os.path.dirname(output_path):
-            # Full path with extension provided
+        # Handle output path - prioritize folders over filename prefixes
+        if output_path.endswith('/') or output_path.endswith('\\'):
+            # Explicitly ends with separator - treat as folder
+            output_dir = output_path.rstrip('/\\')
+            base_filename = f"{graph_name}_{algorithm_name}"
+        elif '/' in output_path or '\\' in output_path:
+            # Path with directory separators: "wyjście/pliczek" or "folder/file.ext"
             output_dir = os.path.dirname(output_path)
-            custom_basename = os.path.splitext(os.path.basename(output_path))[0]
-            base_filename = f"{custom_basename}_{base_filename}"
-        elif os.path.isdir(output_path) or not os.path.dirname(output_path):
-            # Directory path provided
-            output_dir = output_path
-        else:
-            # Custom base name without directory
+            basename_part = os.path.basename(output_path)
+            
+            if '.' in basename_part:
+                # Has extension: "folder/file.ext" -> use "file" as custom base
+                custom_basename = os.path.splitext(basename_part)[0]
+                base_filename = f"{custom_basename}_{base_filename}"
+            else:
+                # No extension: "folder/basename" -> use "basename" as custom base  
+                base_filename = f"{basename_part}_{base_filename}"
+        elif '.' in output_path:
+            # Just filename with extension: "file.ext"
             output_dir = self.base_output_dir
-            base_filename = f"{output_path}_{base_filename}"
+            custom_basename = os.path.splitext(output_path)[0]
+            base_filename = f"{custom_basename}_{base_filename}"
+        else:
+            # Simple name without separators
+            # Check if it should be a folder (if it doesn't look like a filename)
+            if len(output_path) > 3 and not any(c in output_path for c in '._-'):
+                # Looks like a folder name: "results", "custom_output"
+                output_dir = output_path
+                base_filename = f"{graph_name}_{algorithm_name}"
+            else:
+                # Looks like a filename prefix: "test", "my_graph"
+                output_dir = self.base_output_dir
+                base_filename = f"{output_path}_{base_filename}"
         
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
